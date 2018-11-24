@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
+
 /**
  * Generated class for the CarrinhoPage page.
  *
@@ -15,11 +17,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CarrinhoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  carrinho = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public carrinhoProvider:CarrinhoProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CarrinhoPage');
+  ionViewDidEnter(){
+    this.carrinhoProvider.getStorage('carrinho').then(res =>{
+      if(res){
+        this.carrinho = res;
+      }
+    })
+  }
+
+  deletarTudo(){
+    this.carrinho = [];
+    this.carrinhoProvider.setStorage('carrinho',this.carrinho);
+  }
+
+  deletarItem(game){
+    let novaLista = [];
+    for(let item of this.carrinho){
+      if(item.titulo != game.titulo){
+        novaLista.push(item);
+      }
+    }
+    this.carrinho = novaLista;
+    this.carrinhoProvider.setStorage('carrinho',this.carrinho);
   }
 
 }

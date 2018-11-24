@@ -13,6 +13,34 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-</ion-content>
+    <ion-fab top right edge>
+        <button ion-fab mini color="danger" ><ion-icon name="trash"></ion-icon></button>
+        <ion-fab-list>
+          <button (click)="deletarTudo()"><ion-icon name="trash"></ion-icon>Deletar tudo</button>
+    
+        </ion-fab-list>
+      </ion-fab>
+  
+    <ion-list>
+    <ion-item-sliding *ngFor="let item of carrinho">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="{{ item.imagem }}"/>
+        </ion-thumbnail>
+        <h2>{{ item.titulo  }}</h2>
+        <p>{{ item.preco }}</p>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button (click)="deletarItem(item)" ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+          Remover
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    </ion-list>
+  
+  </ion-content>

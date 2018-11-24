@@ -24,7 +24,11 @@
     <ion-row>
       <ion-col *ngFor="let item of items" col-6>
         <ion-item>
-          {{ item.titulo }}
+          <img [src]="item.imagem"/>
+          <p>{{ item.titulo }}</p>
+          <p>{{ item.mercado }}</p>
+          <p>{{ item.preco }}</p>
+          <button ion-button (click)="addCarrinho(item)"><ion-icon name="heart"></ion-icon></button>
         </ion-item>
       </ion-col>
     </ion-row>
