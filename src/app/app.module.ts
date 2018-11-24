@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { CarrinhoPage } from '../pages/carrinho/carrinho';
+import { CancaoPage } from '../pages/cancao/cancao';
+import { PromocoesPage } from '../pages/promocoes/promocoes';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,7 +21,9 @@ import { IonicStorageModule } from '@ionic/storage';
     MyApp,
     HomePage,
     ProdutosPage,
-    CarrinhoPage
+    CarrinhoPage,
+    CancaoPage,
+    PromocoesPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { IonicStorageModule } from '@ionic/storage';
     MyApp,
     HomePage,
     ProdutosPage,
-    CarrinhoPage
+    CarrinhoPage,
+    CancaoPage,
+    PromocoesPage
   ],
   providers: [
     StatusBar,

@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { ProdutosPage } from '../produtos/produtos';
 import { CarrinhoPage } from '../carrinho/carrinho';
+import { CancaoPage } from '../cancao/cancao';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +21,10 @@ export class HomePage {
 
   abreCarrinho(){
     this.navCtrl.push(CarrinhoPage);
+  }
+
+  abreCancao(){
+    this.navCtrl.push(CancaoPage);
   }
 
 }
