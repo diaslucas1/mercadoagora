@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController, IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { CarrinhoPage } from '../../pages/carrinho/carrinho';
 
@@ -21,7 +21,7 @@ export class ProdutosPage {
   items;
   carrinho = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public carrinhoProvider: CarrinhoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public carrinhoProvider: CarrinhoProvider, private modal: ModalController) {
     this.initializeItems();
   }
 
@@ -76,6 +76,13 @@ export class ProdutosPage {
 
     this.carrinho.push(item);
     this.carrinhoProvider.setStorage('carrinho',this.carrinho);
+  }
+
+  //Modal
+  openModal(){
+    const myModal = this.modal.create('ModalPage');
+
+    myModal.present();
   }
 
 }
