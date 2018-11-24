@@ -17,6 +17,22 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <h3>Promoções:</h3>
 
+    <ion-row>
+      <ion-col *ngFor="let item of items" col-6>
+        <ion-item>
+          <img [src]="item.imagem"/>
+          <p>{{ item.titulo }}</p>
+          <p>{{ item.mercado }}</p>
+          <ion-row>
+            <p class="precoantigo">{{ item.precoantigo }}</p>
+            <p class="preconovo">{{ item.preco }}</p>
+          </ion-row>
+          <button ion-button (click)="addCarrinho(item)"><ion-icon name="heart"></ion-icon></button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 </ion-content>
