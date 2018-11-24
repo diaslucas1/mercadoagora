@@ -31,4 +31,17 @@
       </ion-card-content>
     </ion-card>
 
+    <h3>Produtos Relacionados:</h3>
+    <ion-row>
+        <ion-col *ngFor="let item of relacionados" col-6>
+          <ion-item>
+            <img [src]="item.imagem" (click)="openModal()"/>
+            <p>{{ item.titulo }}</p>
+            <p>{{ item.mercado }}</p>
+            <p>{{ item.preco }}</p>
+            <button ion-button (click)="addCarrinho(item)" full>Adicionar</button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
 </ion-content>

@@ -19,7 +19,15 @@
 
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <h3>Produtos:</h3>
+    <ion-item>
+      <ion-label>Produtos: </ion-label>
+      <ion-select ion-end [(ngModel)]="gaming" interface="popover">
+        <ion-option value="novidades">Novidades</ion-option>
+        <ion-option value="maisvistos">Mais Vistos</ion-option>
+        <ion-option value="menorpreco">Menor preço</ion-option>
+        <ion-option value="maiorpreco">Maior preço</ion-option>
+      </ion-select>
+    </ion-item>
 
     <ion-row>
       <ion-col *ngFor="let item of items" col-6>
@@ -28,7 +36,7 @@
           <p>{{ item.titulo }}</p>
           <p>{{ item.mercado }}</p>
           <p>{{ item.preco }}</p>
-          <button ion-button (click)="addCarrinho(item)"><ion-icon name="heart"></ion-icon></button>
+          <button ion-button (click)="addCarrinho(item)" full>Adicionar</button>
         </ion-item>
       </ion-col>
     </ion-row>

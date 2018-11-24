@@ -27,7 +27,7 @@
           <img [src]="item.imagem"/>
           <p>{{ item.titulo }}</p>
           <p class="preco">{{ item.preco }}</p>
-          <button ion-button (click)="addCarrinho(item)"><ion-icon name="heart"></ion-icon></button>
+          <button ion-button (click)="addCarrinho(item)" full>Adicionar</button>
         </ion-item>
       </ion-col>
     </ion-row>
